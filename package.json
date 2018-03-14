@@ -7,9 +7,10 @@
     "start": "concurrently --kill-others \"yarn parcel\" \"yarn electron\"",
     "dist": "yarn parcel:build && build --dir --x64 --publish=never",
     "electron": "electron .",
-    "parcel": "parcel app/renderer/index.html -p 1124 -d app/renderer/.parcel/development",
-    "parcel:build": "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production --target=electron",
-    "test": "yarn parcel:build && jest",
+    "parcel":
+      "parcel app/renderer/index.html -p 1124 -d app/renderer/.parcel/development",
+    "parcel:build":
+      "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production --target=electron",
     "lint": "tslint app/**/*.ts{,x}"
   },
   "author": "shamofu",
@@ -22,41 +23,22 @@
       "app/renderer/.parcel/production/**"
     ]
   },
-  "jest": {
-    "verbose": true,
-    "collectCoverageFrom": [
-      "app/renderer/**",
-      "!app/renderer/index.tsx",
-      "!app/renderer/tests/**",
-      "!app/renderer/.parcel/**"
-    ],
-    "coverageDirectory": ".coverage",
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "globals": { "ts-jest": { "useBabelrc": true } }
-  },
   "devDependencies": {
-    "@types/jest": "^22.2.0",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
+    "@types/react-router-dom": "^4.2.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^3.5.1",
     "electron": "^1.8.3",
     "electron-builder": "^20.4.1",
-    "jest": "^22.4.2",
     "parcel-bundler": "^1.6.2",
-    "react-test-renderer": "^16.2.0",
-    "spectron": "^3.8.0",
-    "ts-jest": "^22.4.1",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.7.2"
   },
   "dependencies": {
+    "antd": "^3.3.0",
     "app-root-path": "^2.0.1",
     "electron-is-dev": "^0.3.0",
     "react": "^16.2.0",
