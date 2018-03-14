@@ -1,25 +1,45 @@
-const { format } = require('url');
+const { format } = require("url");
 
-const { BrowserWindow, app } = require('electron');
-const isDev = require('electron-is-dev');
-const { resolve } = require('app-root-path');
+const { BrowserWindow, app } = require("electron");
+const isDev = require("electron-is-dev");
+const { resolve } = require("app-root-path");
 
-app.on('ready', async () => {
+app.on("ready", async () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     show: false
   });
 
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.show();
-    if (isDev) { mainWindow.webContents.openDevTools(); }
+  const splash = new BrowserWindow({
+    width: 508,
+    height: 316,
+    frame: false,
+    transparebt: true,
+    alwaysOnTop: true,
+    resizable: false
   });
 
-  const devPath = 'http://localhost:1124';
+  splash.loadURL(
+    format({
+      pathname: resolve("app/splash/splash.html"),
+      protocol: "file:",
+      slashes: true
+    })
+  );
+
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+    splash.destroy();
+    if (isDev) {
+      mainWindow.webContents.openDevTools({ mode: "bottom" });
+    }
+  });
+
+  const devPath = "http://localhost:1124";
   const prodPath = format({
-    pathname: resolve('app/renderer/.parcel/production/index.html'),
-    protocol: 'file:',
+    pathname: resolve("app/renderer/.parcel/production/index.html"),
+    protocol: "file:",
     slashes: true
   });
   const url = isDev ? devPath : prodPath;
@@ -28,4 +48,4 @@ app.on('ready', async () => {
   mainWindow.loadURL(url);
 });
 
-app.on('window-all-closed', app.quit);
+app.on("window-all-closed", app.quit);
