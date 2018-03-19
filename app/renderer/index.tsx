@@ -1,10 +1,9 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import Router from "./router"
+import { store } from "./store"
 
 import "antd/dist/antd.css"
-
-const store = {}
 
 const render = Component => {
   ReactDOM.render(
