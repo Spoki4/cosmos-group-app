@@ -1,10 +1,22 @@
 {
   "presets": [
     "react",
-    ["env", {
-      "targets": {
-        "electron": "1.8"
+    [
+      "env",
+      {
+        "targets": {
+          "electron": "1.8"
+        }
       }
-    }]
+    ]
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es"
+      }
+    ]
   ]
 }

@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import * as React from "react"
+import createBrowserHistory from "history/createBrowserHistory"
+import { Router, Route, Switch, Redirect } from "react-router-dom"
+import { LoginContainer } from "./features/login/containers/LoginContainer"
 
-import Root from './pages/root';
-import Start from './pages/start';
+const history = createBrowserHistory()
 
-export default () => {
+export default ({ store }) => {
   return (
-    <HashRouter hashType='noslash'>
+    <Router history={history}>
       <Switch>
-        <Route exact path='/' component={Root} />
-        <Route exact path='/start' component={Start} />
-        <Route component={() => <h1>204 No Content</h1>} />;
+        <Route path="/" store={store} component={LoginContainer} />
+        <Redirect to="/" push />
       </Switch>
-    </HashRouter>
-  );
-};
+    </Router>
+  )
+}
