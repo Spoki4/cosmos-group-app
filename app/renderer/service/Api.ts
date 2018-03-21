@@ -12,7 +12,7 @@ export interface LoginResponse {
 }
 
 export class Api {
-  static readonly URL = "http://127.0.0.1:3000/api"
+  static readonly URL = "https://cosmos-group-backend.herokuapp.com/api"
 
   private static setupHeaders() {
     const headers = {

@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es5",
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["dom", "es6"],
     "sourceMap": true
-  }
+  },
+  "exclude": ["node_modules"]
 }
