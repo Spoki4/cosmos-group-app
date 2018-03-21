@@ -3,7 +3,12 @@ export const LOGIN_API_CALL_SUCCESS = "LOGIN_API_CALL_SUCCESS"
 export const LOGIN_API_CALL_FAILURE = "LOGIN_API_CALL_FAILURE"
 export const LOGOUT = "LOGOUT"
 
-const initialState = {
+export interface LoginState {
+  fetching: boolean
+  error: string
+}
+
+const initialState: LoginState = {
   fetching: false,
   error: null
 }

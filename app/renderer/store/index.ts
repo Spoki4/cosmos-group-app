@@ -1,11 +1,27 @@
-import createSagaMiddleware from "redux-saga"
-import { createStore, applyMiddleware, combineReducers } from "redux"
-import loginReducer from "../features/login/reducer"
+import { createStore, combineReducers, applyMiddleware, compose } from "redux"
+import thunk from "redux-thunk"
 
-const reducers = combineReducers({
-  loginReducer
+import login, { LoginState } from "../features/login/reducer"
+import user, { UserState } from "./common/user"
+
+const rootReducer = combineReducers({
+  login,
+  user
 })
 
-const sagaMiddleware = createSagaMiddleware()
+export interface AppState {
+  login: LoginState
+  user: UserState
+}
 
-export const store = createStore(reducers, applyMiddleware(sagaMiddleware))
+export default () => {
+  const composeEnhancers =
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+  const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk))
+  )
+
+  return store
+}

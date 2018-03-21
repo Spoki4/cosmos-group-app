@@ -1,21 +1,33 @@
 import * as React from "react"
 import { LoginPage } from "../components/pages/LoginPage"
+import { connect } from "react-redux"
+import { tryLogin } from "../actions"
+import { AppState } from "../../../store"
 
 interface State {
   loading: boolean
 }
 
-export class LoginContainer extends React.Component<{}, State> {
-  state = { loading: false }
-
+export class LoginContainerMarkup extends React.Component<any, State> {
   tryLogin = ({ login, password }) => {
-    this.setState({ loading: true })
-    setTimeout(() => {
-      this.setState({ loading: false })
-    }, 2500)
+    this.props.tryLogin({ login, password })
   }
 
   render() {
-    return <LoginPage tryLogin={this.tryLogin} loading={this.state.loading} />
+    return (
+      <LoginPage
+        tryLogin={this.tryLogin}
+        loading={this.props.loading}
+        error={this.props.error}
+      />
+    )
   }
 }
+
+export const LoginContainer = connect(
+  (state: AppState) => ({
+    loading: state.login.fetching,
+    error: state.login.error
+  }),
+  { tryLogin }
+)(LoginContainerMarkup)

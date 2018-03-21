@@ -28,17 +28,29 @@ const Container = styled.div`
 const StyledCard = styled(Card)`
   width: 368px;
   background: transparent;
+
+  & > .ant-card-head {
+    background: transparent;
+    border: none;
+    margin: 0 auto;
+  }
+
+  & .ant-card-head-title {
+    text-align: center;
+  }
 `
 
 interface Props {
   tryLogin: ({ login, password }) => void
   loading: boolean
+  error: string
 }
 
 export const LoginPage = (props: Props) => (
   <FullPage>
     <Container>
-      <StyledCard bordered={false}>
+      <StyledCard title="Авторизация" bordered={false}>
+        {props.error && <p>{props.error}</p>}
         <LoginForm loading={props.loading} onSubmit={props.tryLogin} />
       </StyledCard>
     </Container>
