@@ -4,6 +4,8 @@ import { Router, Route, Switch, Redirect } from "react-router-dom"
 import { LoginContainer } from "./features/login/containers/LoginContainer"
 import { Provider } from "react-redux"
 
+import FeatureRoutes from "./features/routes"
+
 const history = createBrowserHistory()
 
 export default ({ store }) => {
@@ -11,7 +13,7 @@ export default ({ store }) => {
     <Provider store={store}>
       <Router history={history}>
         <Switch>
-          <Route path="/" store={store} component={LoginContainer} />
+          <FeatureRoutes />
           <Redirect to="/" push />
         </Switch>
       </Router>

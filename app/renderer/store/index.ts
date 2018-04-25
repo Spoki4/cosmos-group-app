@@ -4,6 +4,8 @@ import thunk from "redux-thunk"
 import login, { LoginState } from "../features/login/reducer"
 import user, { UserState } from "./common/user"
 
+declare const module: any
+
 const rootReducer = combineReducers({
   login,
   user

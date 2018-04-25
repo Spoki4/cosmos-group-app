@@ -40,6 +40,10 @@ const StyledCard = styled(Card)`
   }
 `
 
+const ErrorText = styled.span`
+  color: #e83535;
+`
+
 interface Props {
   tryLogin: ({ login, password }) => void
   loading: boolean
@@ -50,7 +54,7 @@ export const LoginPage = (props: Props) => (
   <FullPage>
     <Container>
       <StyledCard title="Авторизация" bordered={false}>
-        {props.error && <p>{props.error}</p>}
+        {props.error && <ErrorText>{props.error}</ErrorText>}
         <LoginForm loading={props.loading} onSubmit={props.tryLogin} />
       </StyledCard>
     </Container>

@@ -32,8 +32,8 @@ const LoginFormMarkup = ({
   <Form onSubmit={handleSubmit}>
     <Spin spinning={loading}>
       <FormItem
-        help={errors.login}
-        validateStatus={errors.login ? "error" : "success"}
+        help={touched.login && errors.login}
+        validateStatus={touched.login && errors.login ? "error" : "success"}
       >
         <Input
           name="login"
@@ -46,8 +46,10 @@ const LoginFormMarkup = ({
         />
       </FormItem>
       <FormItem
-        help={errors.password}
-        validateStatus={errors.password ? "error" : "success"}
+        help={touched.password && errors.password}
+        validateStatus={
+          touched.password && errors.password ? "error" : "success"
+        }
       >
         <Input
           name="password"
@@ -73,8 +75,7 @@ export const LoginForm = withFormik<Props, LoginFormData>({
     login: Yup.string().required("Введите логин"),
     password: Yup.string().required("Введите пароль")
   }),
-  handleSubmit: (values, { props, setSubmitting }) => {
-    setSubmitting(false)
+  handleSubmit: (values, { props }) => {
     props.onSubmit(values)
   }
 })(LoginFormMarkup)
