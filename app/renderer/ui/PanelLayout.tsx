@@ -24,21 +24,37 @@ export const PanelLayout = ({ renderMenu, renderContent }) => (
           <Link to="/panel/users">Пользователи</Link>
         </Menu.Item>
         <Menu.Item key="employee">
-          <Link to="/panel/employee">Работники</Link>
+          <Link to="/panel/employee">Персонал</Link>
         </Menu.Item>
         <SubMenu key="accounting" title="Учет">
           <Menu.Item key="stock">
             <Link to="/panel/stocks">Склады</Link>
           </Menu.Item>
-          <Menu.Item key="receive">
-            <Link to="/panel/receive">Привоз</Link>
-          </Menu.Item>
-          <Menu.Item key="sent">
-            <Link to="/panel/sent">Отправка</Link>
+          <Menu.Item key="logistic">
+            <Link to="/panel/logistic">Логистика</Link>
           </Menu.Item>
           <Menu.Divider />
           <Menu.Item key="product">
             <Link to="/panel/products">Товары</Link>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="contractor" title="Контрагенты">
+          <Menu.Item key="supplier">
+            <Link to="/panel/contractor/supplier">Поставщики</Link>
+          </Menu.Item>
+          <Menu.Item key="client">
+            <Link to="/panel/contractor/client">Клиенты</Link>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="report" title="Отчеты">
+          <Menu.Item key="product">
+            <Link to="/panel/report/product">Товары</Link>
+          </Menu.Item>
+          <Menu.Item key="profit">
+            <Link to="/panel/report/profit">Прибыль</Link>
+          </Menu.Item>
+          <Menu.Item key="peoples">
+            <Link to="/panel/report/peoples">Персонал</Link>
           </Menu.Item>
         </SubMenu>
       </Menu>
