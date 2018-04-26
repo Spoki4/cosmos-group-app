@@ -1,20 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunk from "redux-thunk"
-
-import login, { LoginState } from "../features/login/reducer"
-import user, { UserState } from "./common/user"
+import { rootReducer } from "../features/reducers"
 
 declare const module: any
-
-const rootReducer = combineReducers({
-  login,
-  user
-})
-
-export interface AppState {
-  login: LoginState
-  user: UserState
-}
 
 export default () => {
   const composeEnhancers =

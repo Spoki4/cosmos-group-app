@@ -11,9 +11,9 @@ export interface LoginResponse {
   }
 }
 
-export class Api {
+export class AuthApi {
   static readonly URL = process.env.NODE_ENV === "production"
-    ? "/https://cosmos-group-backend.herokuapp.com/api"
+    ? "https://cosmos-group-backend.herokuapp.com/api"
     : "http://127.0.0.1:3000/api"
 
   private static post<R>(url: string, params: any): Promise<R> {
@@ -24,10 +24,10 @@ export class Api {
       },
       body: JSON.stringify(params)
     }
-    return fetch(Api.URL + url, requestParams).then(res => res.json())
+    return fetch(AuthApi.URL + url, requestParams).then(res => res.json())
   }
 
   public static login(params: LoginParams): Promise<LoginResponse> {
-    return Api.post("/login", params)
+    return AuthApi.post("/login", params)
   }
 }
