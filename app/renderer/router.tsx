@@ -1,22 +1,22 @@
-import * as React from "react"
-import createBrowserHistory from "history/createBrowserHistory"
-import { Router, Route, Switch, Redirect } from "react-router-dom"
-import { LoginContainer } from "./features/login/containers/LoginContainer"
-import { Provider } from "react-redux"
-
-import FeatureRoutes from "./features/routes"
-
-const history = createBrowserHistory()
+import * as React from 'react';
+import {Redirect, Router, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {history} from './history';
+import FeatureRoutes from './features/routes';
+import {LocaleProvider} from 'antd';
+import ru_RU from 'antd/lib/locale-provider/ru_RU'
 
 export default ({ store }) => {
   return (
-    <Provider store={store}>
-      <Router history={history}>
-        <Switch>
-          <FeatureRoutes />
-          <Redirect to="/" push />
-        </Switch>
-      </Router>
-    </Provider>
-  )
-}
+    <LocaleProvider locale={ru_RU}>
+      <Provider store={store}>
+        <Router history={history}>
+          <Switch>
+            <FeatureRoutes/>
+            <Redirect to='/' push/>
+          </Switch>
+        </Router>
+      </Provider>
+    </LocaleProvider>
+  );
+};

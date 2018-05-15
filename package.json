@@ -8,13 +8,10 @@
     "start-app": "concurrently --kill-others \"yarn parcel\" \"yarn electron\"",
     "dist": "yarn parcel:build && build --dir --x64 --publish=never",
     "electron": "electron .",
-    "parcel":
-      "parcel app/renderer/index.html -p 1124 -d app/renderer/.parcel/development",
-    "parcel:build":
-      "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production --target=electron",
+    "parcel": "parcel app/renderer/index.html -p 1124 -d app/renderer/.parcel/development",
+    "parcel:build": "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production --target=electron",
     "lint": "tslint app/**/*.ts{,x}",
-    "heroku-postbuild":
-      "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production"
+    "heroku-postbuild": "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production"
   },
   "author": "shamofu",
   "license": "MIT",
@@ -32,7 +29,7 @@
   "devDependencies": {
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
-    "@types/react-redux": "^5.0.18",
+    "@types/react-redux": "^6.0.0",
     "@types/react-router-dom": "^4.2.6",
     "@types/yup": "^0.24.3",
     "babel-plugin-import": "^1.7.0",

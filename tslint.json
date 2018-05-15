@@ -9,7 +9,13 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "jsx-boolean-value": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "arrow-parens": false,
+    "semicolon": false,
+    "interface-name": false,
+    "member-access": false,
+    "member-ordering": false
   },
   "rulesDirectory": []
 }

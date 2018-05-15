@@ -1,26 +1,26 @@
-export const USERS_API_CALL_REQUEST = "USERS_API_CALL_REQUEST"
-export const USERS_API_CALL_SUCCESS = "USERS_API_CALL_SUCCESS"
-export const USERS_API_CALL_FAILURE = "USERS_API_CALL_FAILURE"
+export const USERS_API_CALL_REQUEST = 'USERS_API_CALL_REQUEST';
+export const USERS_API_CALL_SUCCESS = 'USERS_API_CALL_SUCCESS';
+export const USERS_API_CALL_FAILURE = 'USERS_API_CALL_FAILURE';
 
 export interface User {
-  id: string
-  username: string
-  role: string
+  id: string;
+  username: string;
+  role: string;
 }
 
 export interface UsersState {
   list: {
     [key: string]: User
-  }
-  fetching: boolean
-  error: string
+  };
+  fetching: boolean;
+  error: string;
 }
 
 const initialState: UsersState = {
   list: {},
   fetching: true,
   error: null
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -29,28 +29,28 @@ export default (state = initialState, action) => {
         ...state,
         fetching: true,
         error: null
-      }
+      };
     case USERS_API_CALL_SUCCESS:
-      const newList = {}
+      const newList = {};
 
-      action.payload.users.forEach(element => {
-        newList[element.id] = { ...element }
-      })
+      action.payload.users.forEach((element) => {
+        newList[element.id] = {...element};
+      });
 
       return {
         ...state,
         list: newList,
         fetching: false,
         error: null
-      }
+      };
     case USERS_API_CALL_FAILURE:
       return {
         ...state,
         list: {},
         fetching: false,
         error: action.error
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
