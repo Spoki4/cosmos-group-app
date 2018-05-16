@@ -4,6 +4,7 @@ import {AuthRoutes} from './login/routes';
 import {PanelLayout} from '../ui/PanelLayout';
 import {UsersRoutes} from './users/routes';
 import {EmployeeRoutes} from './employee/routes';
+import {ProductsRoutes} from './product/routes';
 
 export default () => (
   <>
@@ -21,6 +22,7 @@ export default () => (
               <>
                 <UsersRoutes {...props} />
                 <EmployeeRoutes {...props} />
+                <ProductsRoutes {...props} />
               </>
             )}
           />

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {ColumnProps} from 'antd/lib/table/interface';
 import {Icon, Table} from 'antd';
-import {Employee} from '../reducer';
+import {Product} from '../reducer';
 
-const columns = ({onRemoveClick, onEditClick}): Array<ColumnProps<Employee>> => [
-  {title: 'ФИО', dataIndex: 'fullname', key: 'fullname'},
-  {title: 'Должность', dataIndex: 'position', key: 'position'},
-  {title: 'Заработная плата', dataIndex: 'salary', key: 'salary'},
+const columns = ({onRemoveClick, onEditClick}): Array<ColumnProps<Product>> => [
+  {title: 'Название товара', dataIndex: 'name', key: 'name'},
+  {title: 'Краткое описание', key: 'description', render: (text, record) => record.description.slice(0, 20)},
+  {title: 'Размеры', key: 'size', render: (text, record) => (<>{record.width}x{record.height}x{record.length}</>)},
   {
     title: 'Действия',
     key: 'action',
@@ -31,11 +31,11 @@ const columns = ({onRemoveClick, onEditClick}): Array<ColumnProps<Employee>> => 
   }
 ];
 
-export const EmployeeTable = ({loading, employees, onRemoveClick, onEditClick}) => (
+export const ProductTable = ({loading, products, onRemoveClick, onEditClick}) => (
   <Table
     rowKey={(record) => record.id}
     loading={loading}
-    dataSource={employees}
+    dataSource={products}
     columns={columns({onRemoveClick, onEditClick})}
   />
 )
