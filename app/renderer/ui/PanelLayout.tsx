@@ -40,10 +40,10 @@ export const PanelLayout = ({renderContent}) => (
         </SubMenu>
         <SubMenu key='contractor' title='Контрагенты'>
           <Menu.Item key='supplier'>
-            <Link to='/panel/contractor/supplier'>Поставщики</Link>
+            <Link to='/panel/suppliers'>Поставщики</Link>
           </Menu.Item>
           <Menu.Item key='client'>
-            <Link to='/panel/contractor/client'>Клиенты</Link>
+            <Link to='/panel/clients'>Клиенты</Link>
           </Menu.Item>
         </SubMenu>
         <SubMenu key='report' titzle='Отчеты'>

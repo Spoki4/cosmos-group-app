@@ -3,7 +3,9 @@ import loginReducer, {LoginState} from './login/reducer';
 import usersReducer, {UsersState} from './users/reducer';
 import employeeReducer, {EmployeeState} from './employee/reducer';
 import productReducer, {ProductState} from './product/reducer';
-import  stockReducer, {StockState} from './stock/reducer';
+import stockReducer, {StockState} from './stock/reducer';
+import supplierReducer, {SupplierState} from './supplier/reducer';
+
 
 export const rootReducer = combineReducers({
   login: loginReducer,
@@ -11,6 +13,7 @@ export const rootReducer = combineReducers({
   employee: employeeReducer,
   product: productReducer,
   stock: stockReducer,
+  supplier: supplierReducer
 });
 
 export interface AppState {
@@ -19,4 +22,5 @@ export interface AppState {
   employee: EmployeeState;
   product: ProductState;
   stock: StockState;
+  supplier: SupplierState
 }
