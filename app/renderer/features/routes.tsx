@@ -8,6 +8,7 @@ import {ProductsRoutes} from './product/routes';
 import {StocksRoutes} from './stock/routes';
 import {SuppliersRoutes} from './supplier/routes';
 import {ClientsRoutes} from './client/routes';
+import {ProcessesRoutes} from './process/routes';
 
 export default () => (
   <>
@@ -29,6 +30,7 @@ export default () => (
                 <StocksRoutes {...props} />
                 <SuppliersRoutes {...props} />
                 <ClientsRoutes {...props} />
+                <ProcessesRoutes {...props} />
               </>
             )}
           />

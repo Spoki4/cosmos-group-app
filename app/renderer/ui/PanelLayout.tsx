@@ -31,7 +31,7 @@ export const PanelLayout = ({renderContent}) => (
             <Link to='/panel/stocks'>Склады</Link>
           </Menu.Item>
           <Menu.Item key='logistic'>
-            <Link to='/panel/logistic'>Логистика</Link>
+            <Link to='/panel/processes'>Логистика</Link>
           </Menu.Item>
           <Menu.Divider />
           <Menu.Item key='products'>

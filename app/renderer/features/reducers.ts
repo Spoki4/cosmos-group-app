@@ -6,6 +6,7 @@ import productReducer, {ProductState} from './product/reducer';
 import stockReducer, {StockState} from './stock/reducer';
 import supplierReducer, {SupplierState} from './supplier/reducer';
 import clientReducer, {ClientState} from './client/reducer';
+import processReducer, {ProcessState} from './process/reducer';
 
 export const rootReducer = combineReducers({
   login: loginReducer,
@@ -14,7 +15,8 @@ export const rootReducer = combineReducers({
   product: productReducer,
   stock: stockReducer,
   supplier: supplierReducer,
-  client: clientReducer
+  client: clientReducer,
+  process: processReducer
 });
 
 export interface AppState {
@@ -24,5 +26,6 @@ export interface AppState {
   product: ProductState;
   stock: StockState;
   supplier: SupplierState;
-  client: ClientState
+  client: ClientState;
+  process: ProcessState
 }

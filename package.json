@@ -13,7 +13,7 @@
     "lint": "tslint app/**/*.ts{,x}",
     "heroku-postbuild": "parcel build app/renderer/index.html --public-url ./ -d app/renderer/.parcel/production"
   },
-  "author": "shamofu",
+  "author": "spoki4",
   "license": "MIT",
   "build": {
     "files": [

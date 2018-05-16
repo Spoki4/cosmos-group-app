@@ -26,7 +26,7 @@ export class Input extends React.Component<Props> {
   }
 
   public onTouch = () => {
-    this.props.onTouch(this.props.name);
+    this.props.onTouch && this.props.onTouch(this.props.name);
   }
 
   public render() {

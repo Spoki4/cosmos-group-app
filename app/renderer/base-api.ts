@@ -51,8 +51,14 @@ export class BaseApi {
         if (response.status === 401 || response.status === 403) {
           throw new Error('AUTH_EXPIRES');
         }
+        return response
+      }).then(async response => {
 
-        return response.json();
+        const text = await response.text()
+        if (text === 'null')
+          return Promise.resolve({})
+
+        return Promise.resolve(JSON.parse(text));
       }).then(data => {
         if (data.error) {
           throw new Error(data.error.message)
