@@ -24,7 +24,7 @@
     ]
   },
   "prettier": {
-    "semi": false
+    "semi": true
   },
   "devDependencies": {
     "@types/react": "^16.3.12",
