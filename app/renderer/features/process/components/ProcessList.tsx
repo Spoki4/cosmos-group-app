@@ -14,7 +14,7 @@ export const ProcessList = ({processes, loading, error, onCreate, onEdit, onRemo
     </Row>
     <Row style={{marginTop: '16px'}} type='flex' justify='start'>
       {processes.map(item => (
-        <Col key={item.id}>
+        <Col key={item.id} style={{marginRight: '16px', marginBottom: '16px'}}>
           <ProcessCard process={item} loading={item.loading} error={item.error} onEdit={onEdit} onRemove={onRemove}/>
         </Col>
       ))}

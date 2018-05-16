@@ -5,7 +5,8 @@ import {ProcessSteps} from './ProcessSteps';
 export const ProcessCard = ({process, loading, error, onEdit, onRemove}) => (
   <Card
     style={{width: '500px'}}
-    cover={<ProcessSteps process={{...process, steps: process.process}} size="default"/>}
+    cover={<div style={{padding: '16px 0 0 16px'}}><ProcessSteps process={{...process, steps: process.process}}
+                                                                 size="default"/></div>}
     actions={[<Icon type="edit" onClick={() => onEdit(process.id)}/>,
       <Icon type="delete" onClick={() => onRemove(process.id)}/>]}
   >
