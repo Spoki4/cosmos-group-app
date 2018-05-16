@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {ProductForm} from '../components/ProductForm';
+import {StockForm} from '../components/StockForm';
 import {Col, Row} from 'antd';
 import {connect} from 'react-redux';
 import {AppState} from '../../reducers';
-import {getProductForm, getProductStateBranch} from '../selectors';
-import {loadOneProduct, updateProduct} from '../actions';
+import {getStockForm, getStockStateBranch} from '../selectors';
+import {loadOneStock, updateStock} from '../actions';
 
 class EditEmployeeLogic extends React.Component<any> {
 
@@ -16,7 +16,7 @@ class EditEmployeeLogic extends React.Component<any> {
     this.props.update({...values, id: this.props.match.params.id})
   }
 
-  public render() {
+  render() {
     return (
       <Row>
         <Row type='flex' justify='center'>
@@ -26,8 +26,8 @@ class EditEmployeeLogic extends React.Component<any> {
         </Row>
         <Row type='flex' justify='center'>
           <Col xs={24} sm={12} md={8}>
-            <ProductForm
-              data={this.props.product}
+            <StockForm
+              data={this.props.stock}
               fetching={this.props.loading}
               onSubmit={this.onSubmit}
             />
@@ -38,14 +38,14 @@ class EditEmployeeLogic extends React.Component<any> {
   }
 }
 
-export const EditProductContainer = connect(
+export const EditStockContainer = connect(
   (state: AppState) => ({
-    product: getProductStateBranch(state).product,
-    loading: getProductForm(state).fetching || getProductStateBranch(state).fetching,
-    error: getProductForm(state).error || getProductStateBranch(state).error
+    stock: getStockStateBranch(state).stock,
+    loading: getStockForm(state).fetching || getStockStateBranch(state).fetching,
+    error: getStockForm(state).error || getStockStateBranch(state).error
   }),
   {
-    update: updateProduct,
-    load: loadOneProduct
+    update: updateStock,
+    load: loadOneStock
   }
 )(EditEmployeeLogic);

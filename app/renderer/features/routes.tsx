@@ -5,6 +5,7 @@ import {PanelLayout} from '../ui/PanelLayout';
 import {UsersRoutes} from './users/routes';
 import {EmployeeRoutes} from './employee/routes';
 import {ProductsRoutes} from './product/routes';
+import {StocksRoutes} from './stock/routes';
 
 export default () => (
   <>
@@ -23,6 +24,7 @@ export default () => (
                 <UsersRoutes {...props} />
                 <EmployeeRoutes {...props} />
                 <ProductsRoutes {...props} />
+                <StocksRoutes {...props} />
               </>
             )}
           />
