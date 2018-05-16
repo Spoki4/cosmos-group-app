@@ -5,7 +5,7 @@ import employeeReducer, {EmployeeState} from './employee/reducer';
 import productReducer, {ProductState} from './product/reducer';
 import stockReducer, {StockState} from './stock/reducer';
 import supplierReducer, {SupplierState} from './supplier/reducer';
-
+import clientReducer, {ClientState} from './client/reducer';
 
 export const rootReducer = combineReducers({
   login: loginReducer,
@@ -13,7 +13,8 @@ export const rootReducer = combineReducers({
   employee: employeeReducer,
   product: productReducer,
   stock: stockReducer,
-  supplier: supplierReducer
+  supplier: supplierReducer,
+  client: clientReducer
 });
 
 export interface AppState {
@@ -22,5 +23,6 @@ export interface AppState {
   employee: EmployeeState;
   product: ProductState;
   stock: StockState;
-  supplier: SupplierState
+  supplier: SupplierState;
+  client: ClientState
 }

@@ -7,6 +7,7 @@ import {EmployeeRoutes} from './employee/routes';
 import {ProductsRoutes} from './product/routes';
 import {StocksRoutes} from './stock/routes';
 import {SuppliersRoutes} from './supplier/routes';
+import {ClientsRoutes} from './client/routes';
 
 export default () => (
   <>
@@ -27,6 +28,7 @@ export default () => (
                 <ProductsRoutes {...props} />
                 <StocksRoutes {...props} />
                 <SuppliersRoutes {...props} />
+                <ClientsRoutes {...props} />
               </>
             )}
           />
